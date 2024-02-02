@@ -1,5 +1,5 @@
 const strapiUrl = "http://46.226.110.124:1337";
-let currentLanguage = "en"; // Default to English
+let currentLanguage = localStorage.getItem('currentLanguage') || "en"; // Get language from localStorage or default to English
 const contentDiv = document.getElementById('content');
 
 async function loadContent(section, language = currentLanguage) {
