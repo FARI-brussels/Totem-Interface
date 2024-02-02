@@ -2,6 +2,14 @@ body, html {
     background-color: #0C95E4;
     font-family: Arial, sans-serif;
     display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    width: 20%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -11,11 +19,17 @@ body, html {
     flex-direction: column;
     justify-content: space-between;
     padding: 20% 10px;
-    position: fixed;
-    height: 60%;
-    top: 20%;
-    left: 0;
+    position: static;
     z-index: 1000;
+    background-color: #ffffff;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+main {
+    width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 
@@ -35,8 +49,8 @@ button:focus {
 }
 
 button#language-select {
-    position: absolute;
-    right: 10px;
+    position: static;
+    margin-left: auto;
 }
 
 
