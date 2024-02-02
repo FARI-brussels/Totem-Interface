@@ -10,6 +10,7 @@ async function loadContent(section, language = currentLanguage) {
         }
         const data = await response.json();
         const contentItem = data.data.find(item => item.attributes.Title.toLowerCase().replace(/\s+/g, '-') === section);
+        console.log(contentItem);
         if (contentItem) {
             contentDiv.innerHTML = `<h1>${contentItem.attributes.Title}</h1><p>${contentItem.attributes.Content}</p>`;
         }
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.tagName === 'BUTTON') {
             const section = event.target.getAttribute('data-section');
             // Placeholder for content change logic
+            loadContent(section);
             console.log('Section clicked:', section);
         }
     });
