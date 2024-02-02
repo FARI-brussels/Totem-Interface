@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const languageSelect = document.getElementById('language-select');
     languageSelect.addEventListener('click', function() {
-        // Placeholder for language toggle logic
-        console.log('Language select clicked');
+        window.location.href = 'language.html'; // Redirect to the language selection page
     });
 });

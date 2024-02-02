@@ -7,13 +7,14 @@ body, html {
 
 #navbar {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 20% 10px;
     position: fixed;
-    width: 100%;
-    top: 0;
+    height: 60%;
+    top: 20%;
+    left: 0;
     z-index: 1000;
 }
 
