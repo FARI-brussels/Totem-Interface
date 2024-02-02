@@ -1,21 +1,37 @@
-let language = "en"; // Default to English
-let strapiUrl = "http://46.226.110.124:1337";
-let pageHistory = ["home"]; // Start with the home page
+const strapiUrl = "http://46.226.110.124:1337";
+let currentLanguage = "en"; // Default to English
+const contentDiv = document.getElementById('content');
 
-let interfaceContent;
-async function loadContentFromStrapi() {
-  try {
-    const response = await fetch(
-      `${strapiUrl}/api/totem-interface-items?locale=${language}&populate=*`
-    );
-    if (!response.ok) {
-      console.log(response);
+async function loadContent(section, language = currentLanguage) {
+    try {
+        const response = await fetch(`${strapiUrl}/api/totem-interface-items?locale=${language}&populate=*`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const contentItem = data.data.find(item => item.attributes.Title.toLowerCase().replace(/\s+/g, '-') === section);
+        if (contentItem) {
+            contentDiv.innerHTML = `<h1>${contentItem.attributes.Title}</h1><p>${contentItem.attributes.Content}</p>`;
+        }
+    } catch (error) {
+        console.error('Failed to load content:', error);
+        contentDiv.innerHTML = '<p>Error loading content.</p>';
     }
-    interfaceContent = await response.json();
-  } catch (error) {
-    console.error("Error occurred: ", error);
-  }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('navbar');
+    navbar.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON' && event.target.dataset.section) {
+            loadContent(event.target.dataset.section);
+        }
+    });
+
+    const languageSelect = document.getElementById('language-select');
+    languageSelect.addEventListener('click', function() {
+        window.location.href = 'language.html'; // Redirect to the language selection page
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.getElementById('navbar');
