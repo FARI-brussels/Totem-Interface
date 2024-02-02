@@ -3,6 +3,10 @@ body, html {
     padding: 0;
     background-color: #0C95E4;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #navbar {
@@ -19,7 +23,9 @@ body, html {
 }
 
 #content {
-    padding-top: 50px; /* Adjust based on the navbar height */
+    margin-left: 200px; /* Adjust based on the navbar width */
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Adjust the max width as needed */
 }
 
 button {
