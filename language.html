@@ -12,6 +12,20 @@
         <button data-language="fr">Français</button>
         <button data-language="nl">Nederlands</button>
     </div>
+    <script>
+    document.getElementById('language-selection').addEventListener('click', function(event) {
+        var languageMap = {
+            'en': 'en',
+            'fr': 'fr_FR',
+            'nl': 'nl'
+        };
+        var selectedLanguage = event.target.getAttribute('data-language');
+        if (selectedLanguage && languageMap[selectedLanguage]) {
+            localStorage.setItem('currentLanguage', languageMap[selectedLanguage]);
+            window.location.href = 'index.html';
+        }
+    });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
