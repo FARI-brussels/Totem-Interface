@@ -1,34 +1,44 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+  }
+
 body, html {
+    position: relative; 
     background-color: #0C95E4;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color:white;
     display: flex;
     height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-#navbar {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #navbar {
+    margin-top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20% 10px;
     position: static;
     z-index: 1000;
-    background-color: #ffffff;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-main {
-    width: 80%;
-    padding: 10px;
+    height: 80%;
     box-sizing: border-box;
 }
 
@@ -44,6 +54,7 @@ button {
     cursor: pointer;
 }
 
+
 button:focus {
     outline: none;
 }
@@ -53,4 +64,56 @@ button#language-select {
     margin-left: auto;
 }
 
+#content{
+    margin-left:100px;
+    margin-top: 100px;
+    height: 100%;
+    width: 600px;
+    color: white
+}
 
+#language-select {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    border-radius: 90px;
+    border: 1px solid white;
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .language-button {
+    align-items: center;
+    margin-top: 400px;
+    margin-left: 100px;
+    border-radius: 90px;
+    border: 1px solid white;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+footer {
+    position: absolute; /* Position the footer absolutely */
+    bottom: -100px; /* Align the bottom of the footer with the bottom of its nearest positioned ancestor */
+    left: 200px;
+    display: fixed;
+    background-color: #0C95E4; /* Adjust to match your site's color scheme */
+    padding: 20px; /* Add some padding */
+    text-align: center; /* Center align the content */
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center; /* Center the logos horizontally */
+    align-items: center; /* Align the logos vertically */
+    gap: 20px; /* Add some space between logos */
+}
+
+.footer-logos img {
+    height: 25px; /* Adjust the size of logos */
+    width: auto; /* Maintain aspect ratio */
+}

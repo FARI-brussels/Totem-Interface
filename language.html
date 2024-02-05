@@ -8,15 +8,15 @@
 </head>
 <body>
     <div id="language-selection">
-        <button data-language="en">English</button>
-        <button data-language="fr">Français</button>
-        <button data-language="nl">Nederlands</button>
+        <button class="language-button" data-language="en">English</button>
+        <button class="language-button" data-language="fr">Français</button>
+        <button class="language-button" data-language="nl">Nederlands</button>
     </div>
     <script>
     document.getElementById('language-selection').addEventListener('click', function(event) {
         var languageMap = {
             'en': 'en',
-            'fr': 'fr_FR',
+            'fr': 'fr-FR',
             'nl': 'nl'
         };
         var selectedLanguage = event.target.getAttribute('data-language');
@@ -26,6 +26,5 @@
         }
     });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
