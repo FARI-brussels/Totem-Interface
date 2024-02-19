@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fari Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <!-- Content will be loaded here by script.js -->
+    </div>
+    <button class="nav" id="menu">menu</button>
+    <button class="nav" id="back-button">back</button>
+    <button class="nav" id="next-button">next</button>
+    <button class="nav" id="language-select">EN 🌐</button>
+    <footer>
+        <div class="footer-logos">
+            <img src="logos/brussels.svg" alt="Brussels Logo" />
+            <img src="logos/eu.svg" alt="EU Logo" />
+            <img src="logos/fari.svg" alt="Fari Logo" />
+            <img src="logos/ulbvub.svg" alt="ULB VUB Logo" />
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // This script block is specifically for handling the content loading in content.html
+        async function loadContentFromQuery() {
+            const queryParams = new URLSearchParams(window.location.search);
+            const section = queryParams.get('section');
+            const lang = queryParams.get('lang') || 'en'; // Default to English if no language is specified
+
+            if (section) {
+                await loadContent(section, lang); // Assuming loadContent is defined in script.js
+            } else {
+                console.error("No section specified in URL.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContentFromQuery();
+            // Any other initialization code specific to content.html can go here
+        });
+        const nextButton = document.getElementById('next-button'); // Ensure this button is in your HTML
+        const backButton = document.getElementById('back-button'); // Ensure this button is in your HTML
+        const menuButton = document.getElementById('menu'); // Ensure this button is in your HTML
+        menuButton.addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirect to the main page
+        });
+
+        nextButton.addEventListener('click', async () => {
+            await loadNextContent();
+        });
+
+        backButton.addEventListener('click', async () => {
+            await loadPreviousContent();
+        });
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('click', function() {
+            window.location.href = 'language.html'; // Redirect to the language selection page
+        });
+    </script>
+</body>
+</html>

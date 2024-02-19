@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="language-selection">
+        <button class="language-button" data-language="en">English</button>
+        <button class="language-button" data-language="fr">Français</button>
+        <button class="language-button" data-language="nl">Nederlands</button>
+    </div>
+    <script>
+    document.getElementById('language-selection').addEventListener('click', function(event) {
+        var languageMap = {
+            'en': 'en',
+            'fr': 'fr-FR',
+            'nl': 'nl'
+        };
+        var selectedLanguage = event.target.getAttribute('data-language');
+        if (selectedLanguage && languageMap[selectedLanguage]) {
+            localStorage.setItem('currentLanguage', languageMap[selectedLanguage]);
+            window.location.href = 'index.html';
+        }
+    });
+    </script>
+</body>
+</html>

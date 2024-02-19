@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat/Montserrat-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+:root {
+    /* Scale factor */
+    --scale-factor: 2;
+
+    /* Base unit sizes, scaled */
+    --base-font-size: calc(1rem * var(--scale-factor)); /* Adjusted for scaling */
+    --base-margin: calc(20px * var(--scale-factor));
+    --base-padding: calc(10px * var(--scale-factor));
+    --button-radius: calc(90px * var(--scale-factor));
+    --content-margin: calc(100px * var(--scale-factor));
+    --navbar-margin-top: calc(200px * var(--scale-factor));
+    --footer-bottom: calc(-100px * var(--scale-factor));
+    --footer-padding: calc(20px * var(--scale-factor));
+    --language-select-width: calc(140px * var(--scale-factor));
+    --language-select-height: calc(80px * var(--scale-factor));
+    --language-button-width: calc(300px * var(--scale-factor));
+    --language-button-height: calc(80px * var(--scale-factor));
+    --footer-logo-gap: calc(20px * var(--scale-factor));
+}
+
+body, html {
+    position: relative;
+    background-color: #0C95E4;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: white;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: var(--base-font-size); /* Ensures base font size is scaled */
+}
+
+#navbar {
+    margin-top: var(--navbar-margin-top);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: static;
+    z-index: 1000;
+    height: 80%;
+    box-sizing: border-box;
+}
+
+.menu{
+    height: 3em; 
+    width: 15em;
+
+}
+
+button {
+    background-color: #0C95E4;
+    color: white;
+    border: none;
+    padding: var(--base-padding);
+    margin: 0 var(--base-margin);
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    font-size: var(--base-font-size); /* Ensure button text is scaled */
+    align-items: center;
+    margin-top: var(--navbar-margin-top);
+    margin-left: var(--content-margin);
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: var(--base-font-size); /* Ensure text is scaled */
+}
+
+button:focus {
+    outline: none;
+}
+
+.nav{
+    position: static;
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--base-margin);
+    border-radius: var(--button-radius);
+    border: 1px solid white;
+    width: var(--language-select-width); /* Adjusted for language-select */
+    height: var(--language-select-height); /* Adjusted for language-select */
+    cursor: pointer;
+    font-size: var(--base-font-size); /* Ensure button text is scaled */
+}
+
+#content {
+    margin-left: var(--content-margin);
+    margin-top: var(--content-margin);
+    height: 100%;
+    width: calc(600px * var(--scale-factor)); /* Adjust content width */
+    color: white;
+}
+
+.language-button {
+    width: var(--language-button-width); /* Correctly scaled */
+    height: var(--language-button-height); /* Correctly scaled */
+
+}
+
+footer {
+    position: absolute;
+    bottom: var(--footer-bottom);
+    left: var(--base-margin);
+    display: fixed;
+    background-color: #0C95E4;
+    padding: var(--footer-padding);
+    text-align: center;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
